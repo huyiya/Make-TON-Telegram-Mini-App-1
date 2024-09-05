@@ -14,13 +14,11 @@ interface UserData {
 }
 
 export default function Home() {
-  const [initDataUnsafe, setInitDataUnsafe] = useState<any | null>(null)
   const [userData, setUserData] = useState<UserData | null>(null)
 
   useEffect(() => {
     if (WebApp.initDataUnsafe.user) {
       setUserData(WebApp.initDataUnsafe.user as UserData)
-      setInitDataUnsafe(WebApp.initDataUnsafe)
     }
   }, [])
 
@@ -28,7 +26,6 @@ export default function Home() {
     <main className="p-4">
       {userData ? (
         <>
-          <p>{initDataUnsafe}</p>
           <h1 className="text-2xl font-bold mb-4">User Data</h1>
           <ul>
             <li>ID: {userData.id}</li>
