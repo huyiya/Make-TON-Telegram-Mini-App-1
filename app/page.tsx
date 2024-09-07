@@ -15,11 +15,13 @@ interface UserData {
 
 export default function Home() {
   const [userData, setUserData] = useState<UserData | null>(null)
+  const [startParam, setStartParam] = useState<string | null>(null)
 
   useEffect(() => {
     if (WebApp.initDataUnsafe.user) {
       console.log(WebApp.initData)
       setUserData(WebApp.initDataUnsafe.user as UserData)
+      setStartParam(WebApp.initDataUnsafe.start_param)
     }
   }, [])
 
@@ -35,6 +37,7 @@ export default function Home() {
             <li>Username: {userData.username || 'N/A'}</li>
             <li>Language Code: {userData.language_code}</li>
             <li>Is Premium: {userData.is_premium ? 'Yes' : 'No'}</li>
+            <li>Start {startParam}</li>
           </ul>
         </>
       ) : (
