@@ -21,7 +21,7 @@ export default function Home() {
     if (WebApp.initDataUnsafe.user) {
       console.log(WebApp.initData)
       setUserData(WebApp.initDataUnsafe.user as UserData)
-      setStartParam(WebApp.initDataUnsafe.start_param)
+      setStartParam(WebApp.initDataUnsafe.start_param as string)
     }
   }, [])
 
